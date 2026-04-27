@@ -2,15 +2,15 @@
 # Домашнее задание к занятию GitLab CI/CD  
 **Марина Кукушкина**
 
-## Задание 1: Развертывание GitLab и настройка runner
+Задание 1
 
-### Скриншот 1: Активный runner в проекте
-![Runner active](images/runner.png)
 
-### Скриншот 2: Настройки раннера
-![Runner settings](images/runner-settings.png)
+## Скриншот 1: Настройки Runners
+![Runners settings](images/runners-settings.png)
 
-![Детали конфигурации раннера](images/runner-config.png) 
+## Скриншот 2: Детали конфигурации раннера
+![Runner config](images/runner-config.png)
+
 ### Задание 2
 
 `Приведите ответ в свободной форме........`
