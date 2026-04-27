@@ -16,7 +16,6 @@
 
 ### Файл .gitlab-ci.yml
 
-```yaml
 stages:
   - test
   - build
