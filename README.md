@@ -12,6 +12,7 @@
 ## Задание 2: CI/CD пайплайн
 
 ### Файл .gitlab-ci.yml
+
 yaml
 stages:
   - test
