@@ -51,7 +51,7 @@ deploy_job:
     - echo "Деплой успешно выполнен!"
   only:
     - main
-
+```
 ### Скриншоты успешных сборок
 
 ![Успешный пайплайн](images/pipeline-passed.png)
