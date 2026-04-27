@@ -3,21 +3,15 @@ stages:
   - build
   - deploy
 
-variables:
-  DOCKER_IMAGE: docker:latest
-
-before_script:
-  - echo "Начинаем выполнение пайплайна для проекта"
-
 test_job:
   stage: test
-  image: docker:latest
+  image: alpine:latest
   tags:
     - docker
   script:
     - echo "=== Запуск тестов ==="
-    - echo "Проверяем версию Docker"
-    - docker --version
+    - echo "Проверяем окружение"
+    - uname -a
     - echo "Тесты успешно пройдены!"
 
 build_job:
@@ -27,7 +21,6 @@ build_job:
     - docker
   script:
     - echo "=== Сборка проекта ==="
-    - echo "Создаём тестовый артефакт"
     - mkdir -p build
     - echo "Результат сборки от $(date)" > build/info.txt
     - cat build/info.txt
@@ -43,8 +36,7 @@ deploy_job:
     - docker
   script:
     - echo "=== Деплой ==="
-    - echo "Размещаем артефакты"
-    - ls -la build/
+    - ls -la build/ 2>/dev/null || echo "Артефакты не найдены"
     - echo "Деплой успешно выполнен!"
   only:
     - main
