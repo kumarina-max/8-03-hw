@@ -61,7 +61,5 @@ deploy_job:
 
 Скриншоты успешных сборок
 
-![Скриншот 1](images/pipeline-passed.png) ![Скриншот 2](images/test_job.png)
-
-![Скриншот 3](images/build_job.png) ![Скриншот 4](images/deploy_job.png)
+![Пайплайн](images/pipeline-passed.png) ![Тест](images/test_job.png) ![Билд](images/build_job.png) ![Деплой](images/deploy_job.png)
 
