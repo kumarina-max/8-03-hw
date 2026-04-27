@@ -1,0 +1,47 @@
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  DOCKER_IMAGE: alpine:latest
+
+before_script:
+  - echo "Начинаем выполнение пайплайна для проекта"
+
+test_job:
+  stage: test
+  tags:
+    - docker
+  script:
+    - echo "=== Запуск тестов ==="
+    - echo "Проверяем версию Docker"
+    - docker --version
+    - echo "Тесты успешно пройдены!"
+
+build_job:
+  stage: build
+  tags:
+    - docker
+  script:
+    - echo "=== Сборка проекта ==="
+    - echo "Создаём тестовый артефакт"
+    - mkdir -p build
+    - echo "Результат сборки от $(date)" > build/info.txt
+    - cat build/info.txt
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week
+
+deploy_job:
+  stage: deploy
+  tags:
+    - docker
+  script:
+    - echo "=== Деплой ==="
+    - echo "Размещаем артефакты"
+    - ls -la build/
+    - echo "Деплой успешно выполнен!"
+  only:
+    - main
