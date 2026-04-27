@@ -1,17 +1,20 @@
 ---
-# Домашнее задание к занятию GitLab CI/CD  
+
+## Полный README.md (задания 1 и 2 вместе):
+
+```markdown
+# Домашнее задание к занятию GitLab CI/CD
 **Марина Кукушкина**
 
 ## Задание 1: Развертывание GitLab и настройка runner
 
-### Скриншот 1: Активный runner в проекте
-![Runner active](images/runner.png)
+### Скриншот 1: Настройки Runners
+![Настройки Runners](images/runners-settings.png)
 
-### Скриншот 2: Настройки раннера
-![Runner settings](images/runner-settings.png)
+### Скриншот 2: Детали конфигурации раннера
+![Детали конфигурации](images/runner-config.png)
 
- 
-### Задание 2
+## Задание 2: CI/CD пайплайн
 
 ### Файл .gitlab-ci.yml
 
@@ -28,8 +31,6 @@ test_job:
     - docker
   script:
     - echo "=== Запуск тестов ==="
-    - echo "Проверяем окружение"
-    - uname -a
     - echo "Тесты успешно пройдены!"
 
 build_job:
@@ -40,12 +41,10 @@ build_job:
   script:
     - echo "=== Сборка проекта ==="
     - mkdir -p build
-    - echo "Результат сборки от $(date)" > build/info.txt
-    - cat build/info.txt
+    - echo "Результат сборки" > build/info.txt
   artifacts:
     paths:
       - build/
-    expire_in: 1 week
 
 deploy_job:
   stage: deploy
@@ -54,12 +53,16 @@ deploy_job:
     - docker
   script:
     - echo "=== Деплой ==="
-    - ls -la build/ 2>/dev/null || echo "Артефакты готовы"
     - echo "Деплой успешно выполнен!"
   only:
     - main
 
-Скриншоты успешных сборок
+### Скриншоты успешных сборок
 
-![Пайплайн](images/pipeline-passed.png) ![Тест](images/test_job.png) ![Билд](images/build_job.png) ![Деплой](images/deploy_job.png)
+![Успешный пайплайн](images/pipeline-passed.png)
 
+![Test job](images/test_job.png)
+
+![Build job](images/build_job.png)
+
+![Deploy job](images/deploy_job.png)
