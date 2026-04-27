@@ -4,13 +4,14 @@ stages:
   - deploy
 
 variables:
-  DOCKER_IMAGE: alpine:latest
+  DOCKER_IMAGE: docker:latest
 
 before_script:
   - echo "Начинаем выполнение пайплайна для проекта"
 
 test_job:
   stage: test
+  image: docker:latest
   tags:
     - docker
   script:
@@ -21,6 +22,7 @@ test_job:
 
 build_job:
   stage: build
+  image: alpine:latest
   tags:
     - docker
   script:
@@ -36,6 +38,7 @@ build_job:
 
 deploy_job:
   stage: deploy
+  image: alpine:latest
   tags:
     - docker
   script:
