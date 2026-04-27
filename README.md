@@ -66,3 +66,4 @@ deploy_job:
 ![Build job](images/build_job.png)
 
 ![Deploy job](images/deploy_job.png)
+![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
